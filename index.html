@@ -1,0 +1,65 @@
+<!--
+TicTacToe
+- - - - - - - - - -
+http://codepen.io/DizNicolasAmor/pen/vgbgRz 
+Author:  Diz, Nicolás Amor (https://github.com/DizNicolasAmor)
+This project is a challenge posed by FreeCodeCamp.
+-->
+
+<html>
+  <head>
+    <title>ClassicalTicTacToe</title>
+
+    <!-- bootstrap -->
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <!--my css file-->
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+    <!-- user chooses X or O -->
+    <div id="choose">
+      <h1>CHOOSE</h1>
+      <div class="text-center">
+        <button id="chooseX">X</button>
+        <button id="chooseO">O</button>
+      </div>
+    </div>
+    
+    <!-- board -->
+    <div id="board">
+      <div class="col-xs-12">
+        <button class="col-xs-4 locker odd" id="0"></button>
+        <button class="col-xs-4 locker even" id="1"></button>
+        <button class="col-xs-4 locker odd" id="2"></button>
+      </div>
+      <div class="col-xs-12">
+        <button class="col-xs-4 locker even" id="3"></button>
+        <button class="col-xs-4 locker odd" id="4"></button>
+        <button class="col-xs-4 locker even" id="5"></button>
+      </div>
+      <div class="col-xs-12">
+        <button class="col-xs-4 locker odd" id="6"></button>
+        <button class="col-xs-4 locker even" id="7"></button>
+        <button class="col-xs-4 locker odd" id="8"></button>
+      </div>
+    </div>
+    
+    <!-- modal -> You win! // Computer wins!   //  button: Play again?  -->
+    <div id="result" class="hide">
+      <h1 id="gameResult"></h1>
+      &nbsp
+      <div class="text-center">
+        <button id="playAgain">Play again?</button>
+      </div>
+    </div>
+
+    <!-- jQuery-->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+    <!-- my js file-->
+    <script src="main.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>
