@@ -1,0 +1,91 @@
+/*
+TicTacToe
+- - - - - - - - - -
+http://codepen.io/DizNicolasAmor/pen/vgbgRz 
+Author:  Diz, Nicolás Amor (https://github.com/DizNicolasAmor)
+This project is a challenge posed by FreeCodeCamp.
+*/
+
+
+body{
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Gfp-wood-cupboard-texture.jpg/1024px-Gfp-wood-cupboard-texture.jpg");
+  overflow: hidden;
+}
+
+h1, h2, h3, h4{
+  font-family: Arial;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+/* classes */
+.locker{
+  width: 100px;
+	height: 110px;
+  border: black solid;
+  font-size: 5em;
+  text-align: center;
+  vertical-align: middle;
+
+}
+
+.odd{
+  background: radial-gradient(Peru, Sienna); 
+}
+
+.even{
+  background: radial-gradient(Wheat, Peru); 
+}
+
+
+/* targets */
+#choose, #result{
+  border-radius: 5%;
+  background: rgba(0, 10, 10, .5);
+  color: white;
+
+  width: 300px;
+  height: 330px;
+
+  z-index: 1;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#board {
+  width: 330px;
+  height: 330px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#chooseX, #chooseO{
+  border-radius: 50%;
+  width: 100px;
+	height: 110px;
+  border: black solid;
+  font-size: 5em;
+  text-align: center;
+  vertical-align: middle;
+  background: SlateGrey;
+}
+
+#playAgain{
+  border-radius: 30%;
+  width: 150px;
+	height: 75px;
+  border: black;
+  font-size: 1.5em;
+  text-align: center;
+  vertical-align: middle;
+  background: SlateGrey;
+}
