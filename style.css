@@ -14,11 +14,12 @@ h1{
 }
 
 .locker{
-  width: 100px;
+  width: 107px;
   height: 110px;
   font-size: 5em;
   text-align: center;
   vertical-align: middle;
+  box-shadow: 10px 10px 5px #888888;
 }
 
 .odd{
@@ -39,7 +40,7 @@ h1{
   background: rgba(0, 10, 10, .5);
   color: white;
 
-  width: 300px;
+  width: 330px;
   height: 330px;
 
   z-index: 1;
