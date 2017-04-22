@@ -1,43 +1,37 @@
 /*
 TicTacToe
 - - - - - - - - - -
-http://codepen.io/DizNicolasAmor/pen/vgbgRz 
+https://diznicolasamor.github.io/TicTacToe/ 
 Author:  Diz, Nicolás Amor (https://github.com/DizNicolasAmor)
 This project is a challenge posed by FreeCodeCamp.
 */
 
-
-body{
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Gfp-wood-cupboard-texture.jpg/1024px-Gfp-wood-cupboard-texture.jpg");
-  overflow: hidden;
-}
-
-h1, h2, h3, h4{
+h1{
   font-family: Arial;
   font-weight: bold;
   text-align: center;
+  cursor: default;
 }
 
-
-/* classes */
 .locker{
   width: 100px;
-	height: 110px;
-  border: black solid;
+  height: 110px;
   font-size: 5em;
   text-align: center;
   vertical-align: middle;
-
 }
 
 .odd{
-  background: radial-gradient(Peru, Sienna); 
+  background: #E0EAFC;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .even{
-  background: radial-gradient(Wheat, Peru); 
+  background: #43C6AC;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #191654, #43C6AC);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #191654, #43C6AC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
 
 /* targets */
 #choose, #result{
