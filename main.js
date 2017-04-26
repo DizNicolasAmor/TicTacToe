@@ -19,8 +19,10 @@ $(document).ready(function(){
     lockers = ['#', '#', '#', '#', '#', '#', '#', '#', '#'];
     $('.locker').text('');
     gameOn=true; 
-    lockers[4]=computer;
-    $('#'+4).text(computer);
+    if(computer == 'X'){
+       $('#'+4).text(computer);
+      lockers[4]=computer;
+    }
   }
 
   //choose X or O
@@ -71,7 +73,7 @@ $(document).ready(function(){
   //what happens when computer plays
   function computersTurn(){
     // look for the empty spaces in the following order 
-    var importantLockers = [0, 8, 2, 6, 1, 5, 7, 3];
+    var importantLockers = [4, 0, 8, 2, 6, 1, 5, 7, 3];
     
     for(var i=0; i<8; i++){
       var move = $('#'+importantLockers[i]).text();
