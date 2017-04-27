@@ -111,7 +111,7 @@ $(document).ready(function(){
     }
     
     //check second row
-    if(lockers[3]== computer && lockers[4]== computer && lockers[5]=="#"){
+    else if(lockers[3]== computer && lockers[4]== computer && lockers[5]=="#"){
       noOneCanWin = false;
       lockers[5] = computer;
       $('#'+5).text(computer);
@@ -130,7 +130,7 @@ $(document).ready(function(){
     }
 
     //check third row
-    if(lockers[6]== computer && lockers[7]== computer && lockers[8]=="#"){
+    else if(lockers[6]== computer && lockers[7]== computer && lockers[8]=="#"){
       noOneCanWin = false;
       lockers[8] = computer;
       $('#'+8).text(computer);
@@ -149,7 +149,7 @@ $(document).ready(function(){
     }
 
     //top-left bottom-right diagonal
-    if(lockers[0]== computer && lockers[4]== computer && lockers[8]=="#"){
+    else if(lockers[0]== computer && lockers[4]== computer && lockers[8]=="#"){
       noOneCanWin = false;
       lockers[8] = computer;
       $('#'+8).text(computer);
@@ -168,7 +168,7 @@ $(document).ready(function(){
     }
 
     //bottom-left top-right diagonal
-    if(lockers[6]== computer && lockers[4]== computer && lockers[2]=="#"){
+    else if(lockers[6]== computer && lockers[4]== computer && lockers[2]=="#"){
       noOneCanWin = false;
       lockers[2] = computer;
       $('#'+2).text(computer);
@@ -190,7 +190,7 @@ $(document).ready(function(){
     //  ***if not, prevent Player Win in next move***
     
     //check first row
-    if(lockers[0]== player && lockers[1]== player && lockers[2]=="#"){
+    else if(lockers[0]== player && lockers[1]== player && lockers[2]=="#"){
       noOneCanWin = false;
       lockers[2] = computer;
       $('#'+2).text(computer);
@@ -209,7 +209,7 @@ $(document).ready(function(){
     }
 
     //check second row
-    if(lockers[3]== player && lockers[4]== player && lockers[5]=="#"){
+    else if(lockers[3]== player && lockers[4]== player && lockers[5]=="#"){
       noOneCanWin = false;
       lockers[5] = computer;
       $('#'+5).text(computer);
@@ -228,7 +228,7 @@ $(document).ready(function(){
     }
 
     //check third row
-    if(lockers[6]== player && lockers[7]== player && lockers[8]=="#"){
+    else if(lockers[6]== player && lockers[7]== player && lockers[8]=="#"){
       noOneCanWin = false;
       lockers[8] = computer;
       $('#'+8).text(computer);
@@ -247,7 +247,7 @@ $(document).ready(function(){
     }
 
     //top-left bottom-right diagonal
-    if(lockers[0]== player && lockers[4]== player && lockers[8]=="#"){
+    else if(lockers[0]== player && lockers[4]== player && lockers[8]=="#"){
       noOneCanWin = false;
       lockers[8] = computer;
       $('#'+8).text(computer);
@@ -266,7 +266,7 @@ $(document).ready(function(){
     }
 
     //bottom-left top-right diagonal
-    if(lockers[6]== player && lockers[4]== player && lockers[2]=="#"){
+    else if(lockers[6]== player && lockers[4]== player && lockers[2]=="#"){
       noOneCanWin = false;
       lockers[2] = computer;
       $('#'+2).text(computer);
