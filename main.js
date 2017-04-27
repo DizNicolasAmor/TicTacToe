@@ -6,6 +6,7 @@ Author:  Diz, Nicolás Amor (https://github.com/DizNicolasAmor)
 This project is a challenge posed by FreeCodeCamp.
 */
 
+//level = medium;  //computer does not recognize vertical patterns. 
 
 $(document).ready(function(){
   var lockers = ['#', '#', '#', '#', '#', '#', '#', '#', '#'];
@@ -72,18 +73,223 @@ $(document).ready(function(){
 
   //what happens when computer plays
   function computersTurn(){
-    // look for the empty spaces in the following order 
-    var importantLockers = [4, 0, 8, 2, 6, 1, 5, 7, 3];
-    
-    for(var i=0; i<8; i++){
-      var move = $('#'+importantLockers[i]).text();
-      if(move===''){
-        lockers[importantLockers[i]] = computer;
-        $('#'+importantLockers[i]).text(computer);
-        i=8;
-      }
+    var noOneCanWin = true; 
+
+    function playPattern(){
+	    // look for the empty spaces in the following order 
+	    var importantLockers = [4, 0, 8, 2, 6, 1, 5, 7, 3];
+   
+	    for(var i=0; i<9; i++){
+	      var move = $('#'+importantLockers[i]).text();
+	      if(move===''){
+	        lockers[importantLockers[i]] = computer;
+	        $('#'+importantLockers[i]).text(computer);
+	        i=9;
+	      }
+	    }
+	}
+
+    //   ***first check if can win in next move***
+
+    //check first row
+    if(lockers[0]== computer && lockers[1]== computer && lockers[2]=="#"){
+      noOneCanWin = false;
+      lockers[2] = computer;
+      $('#'+2).text(computer);
     }
-  };  //computersTurn();
+
+    else if(lockers[0]== computer && lockers[2]== computer && lockers[1]=="#"){
+      noOneCanWin = false;
+      lockers[1] = computer;
+      $('#'+1).text(computer);
+    }
+
+    else if(lockers[1]== computer && lockers[2]== computer && lockers[0]=="#"){
+      noOneCanWin = false;
+      lockers[0] = computer;
+      $('#'+0).text(computer);
+    }
+    
+    //check second row
+    if(lockers[3]== computer && lockers[4]== computer && lockers[5]=="#"){
+      noOneCanWin = false;
+      lockers[5] = computer;
+      $('#'+5).text(computer);
+    }
+
+    else if(lockers[3]== computer && lockers[5]== computer && lockers[4]=="#"){
+      noOneCanWin = false;
+      lockers[4] = computer;
+      $('#'+4).text(computer);
+    }
+
+    else if(lockers[4]== computer && lockers[5]== computer && lockers[3]=="#"){
+      noOneCanWin = false;
+      lockers[3] = computer;
+      $('#'+3).text(computer);
+    }
+
+    //check third row
+    if(lockers[6]== computer && lockers[7]== computer && lockers[8]=="#"){
+      noOneCanWin = false;
+      lockers[8] = computer;
+      $('#'+8).text(computer);
+    }
+
+    else if(lockers[6]== computer && lockers[8]== computer && lockers[7]=="#"){
+      noOneCanWin = false;
+      lockers[7] = computer;
+      $('#'+7).text(computer);
+    }
+
+    else if(lockers[7]== computer && lockers[8]== computer && lockers[6]=="#"){
+      noOneCanWin = false;
+      lockers[6] = computer;
+      $('#'+6).text(computer);
+    }
+
+    //top-left bottom-right diagonal
+    if(lockers[0]== computer && lockers[4]== computer && lockers[8]=="#"){
+      noOneCanWin = false;
+      lockers[8] = computer;
+      $('#'+8).text(computer);
+    }
+
+    else if(lockers[0]== computer && lockers[8]== computer && lockers[4]=="#"){
+      noOneCanWin = false;
+      lockers[4] = computer;
+      $('#'+4).text(computer);
+    }
+
+    else if(lockers[4]== computer && lockers[8]== computer && lockers[0]=="#"){
+      noOneCanWin = false;
+      lockers[0] = computer;
+      $('#'+0).text(computer);
+    }
+
+    //bottom-left top-right diagonal
+    if(lockers[6]== computer && lockers[4]== computer && lockers[2]=="#"){
+      noOneCanWin = false;
+      lockers[2] = computer;
+      $('#'+2).text(computer);
+    }
+
+    else if(lockers[6]== computer && lockers[2]== computer && lockers[4]=="#"){
+      noOneCanWin = false;
+      lockers[4] = computer;
+      $('#'+4).text(computer);
+    }
+
+    else if(lockers[4]== computer && lockers[2]== computer && lockers[6]=="#"){
+      noOneCanWin = false;
+      lockers[6] = computer;
+      $('#'+6).text(computer);
+    }
+
+    
+    //  ***if not, prevent Player Win in next move***
+    
+    //check first row
+    if(lockers[0]== player && lockers[1]== player && lockers[2]=="#"){
+      noOneCanWin = false;
+      lockers[2] = computer;
+      $('#'+2).text(computer);
+    }
+
+    else if(lockers[0]== player && lockers[2]== player&& lockers[1]=="#"){
+      noOneCanWin = false;
+      lockers[1] = computer;
+      $('#'+1).text(computer);
+    }
+
+    else if(lockers[1]== player && lockers[2]== player && lockers[0]=="#"){
+      noOneCanWin = false;
+      lockers[0] = computer;
+      $('#'+0).text(computer);
+    }
+
+    //check second row
+    if(lockers[3]== player && lockers[4]== player && lockers[5]=="#"){
+      noOneCanWin = false;
+      lockers[5] = computer;
+      $('#'+5).text(computer);
+    }
+
+    else if(lockers[3]== player && lockers[5]== player && lockers[4]=="#"){
+      noOneCanWin = false;
+      lockers[4] = computer;
+      $('#'+4).text(computer);
+    }
+
+    else if(lockers[4]== player && lockers[5]== player && lockers[3]=="#"){
+      noOneCanWin = false;
+      lockers[3] = computer;
+      $('#'+3).text(computer);
+    }
+
+    //check third row
+    if(lockers[6]== player && lockers[7]== player && lockers[8]=="#"){
+      noOneCanWin = false;
+      lockers[8] = computer;
+      $('#'+8).text(computer);
+    }
+
+    else if(lockers[6]== player && lockers[8]== player && lockers[7]=="#"){
+      noOneCanWin = false;
+      lockers[7] = computer;
+      $('#'+7).text(computer);
+    }
+
+    else if(lockers[7]== player && lockers[8]== player && lockers[6]=="#"){
+      noOneCanWin = false;
+      lockers[6] = computer;
+      $('#'+6).text(computer);
+    }
+
+    //top-left bottom-right diagonal
+    if(lockers[0]== player && lockers[4]== player && lockers[8]=="#"){
+      noOneCanWin = false;
+      lockers[8] = computer;
+      $('#'+8).text(computer);
+    }
+
+    else if(lockers[0]== player && lockers[8]== player && lockers[4]=="#"){
+      noOneCanWin = false;
+      lockers[4] = computer;
+      $('#'+4).text(computer);
+    }
+    
+    else if(lockers[4]== player && lockers[8]== player && lockers[0]=="#"){
+      noOneCanWin = false;
+      lockers[0] = computer;
+      $('#'+0).text(computer);
+    }
+
+    //bottom-left top-right diagonal
+    if(lockers[6]== player && lockers[4]== player && lockers[2]=="#"){
+      noOneCanWin = false;
+      lockers[2] = computer;
+      $('#'+2).text(computer);
+    }
+
+    else if(lockers[6]== player && lockers[2]== player && lockers[4]=="#"){
+      noOneCanWin = false;
+      lockers[4] = computer;
+      $('#'+4).text(computer);
+    }
+
+    else if(lockers[4]== player && lockers[2]== player && lockers[6]=="#"){
+      noOneCanWin = false;
+      lockers[6] = computer;
+      $('#'+6).text(computer);
+    }
+    
+    //   ***if not, play pattern***
+    if(noOneCanWin == true){
+      playPattern();
+    }
+
+}  //computersTurn()
   
   //function checkWin //  Note: CP -> currentPlayer
   function checkWin(lockers, CP){
