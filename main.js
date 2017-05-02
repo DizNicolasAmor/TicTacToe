@@ -13,7 +13,11 @@ $(document).ready(function(){
       player = 'X', 
       computer = 'O', 
       gameOn = false, 
-      allLockersFilled = false;
+      allLockersFilled = false,
+            
+      easyMode = false, 
+      mediumMode = false,
+      hardMode = false;
   
   //reset: computer starts and set  its value in locker #4
   function reset(){
@@ -44,19 +48,22 @@ $(document).ready(function(){
   //chooseLevel
   $('#easyMode').click(function(){
     $('#chooseLevel').addClass('hide');
+    easyMode = true;
     reset();
   });
   
   $('#mediumMode').click(function(){
     $('#chooseLevel').addClass('hide');
+    mediumMode = true;
     reset();
   });
   
   $('#hardMode').click(function(){
     $('#chooseLevel').addClass('hide');
+    hardMode = true;
     reset();
   });
-  
+ 
 	//play again?  button
   $('#playAgain').click(function(){
     $('#result').addClass('hide');
