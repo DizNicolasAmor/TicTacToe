@@ -9,11 +9,11 @@ This project is a challenge posed by FreeCodeCamp.
 //level = medium;  //computer does not recognize vertical patterns. 
 
 $(document).ready(function(){
-  var lockers = ['#', '#', '#', '#', '#', '#', '#', '#', '#'];
-  var player = 'X'; 
-  var computer = 'O'; 
-  var gameOn = false; 
-  var allLockersFilled = false;
+  var lockers = ['#', '#', '#', '#', '#', '#', '#', '#', '#'],
+      player = 'X', 
+      computer = 'O', 
+      gameOn = false, 
+      allLockersFilled = false;
   
   //reset: computer starts and set  its value in locker #4
   function reset(){
@@ -31,17 +31,33 @@ $(document).ready(function(){
     player = 'X';
     computer = 'O'; 
     $('#choose').hide();
-    reset();
+    $('#chooseLevel').removeClass('hide');
   });
   
   $('#chooseO').click(function(){
     player = 'O';
     computer = 'X'; 
     $('#choose').hide();
+    $('#chooseLevel').removeClass('hide');
+  });
+  
+  //chooseLevel
+  $('#easyMode').click(function(){
+    $('#chooseLevel').addClass('hide');
     reset();
   });
   
-  //play again?  button
+  $('#mediumMode').click(function(){
+    $('#chooseLevel').addClass('hide');
+    reset();
+  });
+  
+  $('#hardMode').click(function(){
+    $('#chooseLevel').addClass('hide');
+    reset();
+  });
+  
+	//play again?  button
   $('#playAgain').click(function(){
     $('#result').addClass('hide');
     $('#choose').show();
