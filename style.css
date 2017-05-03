@@ -40,8 +40,8 @@ h1{
   background: rgba(0, 10, 10, .5);
   color: white;
 
-  width: 330px;
-  height: 330px;
+  width: 340px;
+  height: 340px;
 
   z-index: 1;
   margin: auto;
@@ -79,6 +79,8 @@ h1{
   width: 150px;
 	height: 75px;
   margin: 5%; 
+  margin-left: 27%;
+  margin-right: 27%;
   border: black;
   font-size: 1.5em;
   text-align: center;
