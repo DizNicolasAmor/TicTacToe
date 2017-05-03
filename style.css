@@ -6,7 +6,6 @@ Author:  Diz, Nicolás Amor (https://github.com/DizNicolasAmor)
 This project is a challenge posed by FreeCodeCamp.
 */
 
-
 h1{
   font-family: Arial;
   font-weight: bold;
@@ -15,13 +14,12 @@ h1{
 }
 
 .locker{
-  width: 100px;
-	height: 110px;
-  border: black solid;
+  width: 107px;
+  height: 110px;
   font-size: 5em;
   text-align: center;
   vertical-align: middle;
-
+  box-shadow: 10px 10px 5px #888888;
 }
 
 .odd{
@@ -37,13 +35,13 @@ h1{
 }
 
 /* targets */
-#choose, #result{
+#choose, #result, #chooseLevel{
   border-radius: 5%;
   background: rgba(0, 10, 10, .5);
   color: white;
 
-  width: 300px;
-  height: 330px;
+  width: 340px;
+  height: 340px;
 
   z-index: 1;
   margin: auto;
@@ -76,13 +74,18 @@ h1{
   background: SlateGrey;
 }
 
-#playAgain{
-  border-radius: 30%;
+#playAgain, #easyMode, #mediumMode, #hardMode{
+  border-radius: 10%;
   width: 150px;
 	height: 75px;
+  margin: 5%; 
+  margin-left: 27%;
+  margin-right: 27%;
   border: black;
   font-size: 1.5em;
   text-align: center;
   vertical-align: middle;
-  background: SlateGrey;
+  background: #616161;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #9bc5c3, #616161);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #9bc5c3, #616161); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
