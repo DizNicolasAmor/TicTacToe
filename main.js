@@ -245,6 +245,12 @@ $(document).ready(function(){
       gameOn = false; 
     }
     
+    if(gameOn === true){
+      easyMode = false; 
+      mediumMode = false;
+      hardMode = false;
+    }
+
   };
   
   //check if allLockersFilled
