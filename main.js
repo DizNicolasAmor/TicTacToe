@@ -17,8 +17,11 @@ $(document).ready(function(){
             
       easyMode = false, 
       mediumMode = false,
-      hardMode = false;
-  
+      hardMode = false,
+
+      //var used in easyMode
+      computerAlreadyPlayed = false;
+
   //reset: computer starts and set  its value in locker #4
   function reset(){
     lockers = ['#', '#', '#', '#', '#', '#', '#', '#', '#'];
