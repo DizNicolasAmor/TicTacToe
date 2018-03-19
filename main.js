@@ -1,20 +1,13 @@
-/*
-TicTacToe
-- - - - - - - - - -
-http://codepen.io/DizNicolasAmor/pen/vgbgRz 
-Author:  Diz, Nicolás Amor (https://github.com/DizNicolasAmor)
-This project is a challenge posed by FreeCodeCamp.
-*/
-
-//level = medium;  //computer does not recognize vertical patterns. 
-
-$(document).ready(function(){
-  var lockers = ['#', '#', '#', '#', '#', '#', '#', '#', '#'],
+$(document).ready( () => {
+  let lockers = ['#', '#', '#', '#', '#', '#', '#', '#', '#'],
       player = 'X', 
       computer = 'O', 
       gameOn = false, 
       allLockersFilled = false,
-            
+
+      countTurns = 0,
+      isAlgorithmHolesDone = false,
+
       easyMode = false, 
       mediumMode = false,
       hardMode = false,
@@ -27,6 +20,7 @@ $(document).ready(function(){
     lockers = ['#', '#', '#', '#', '#', '#', '#', '#', '#'];
     $('.locker').text('');
     gameOn=true; 
+    countTurns = 0;
     if(computer == 'X'){
        $('#'+4).text(computer);
       lockers[4]=computer;
@@ -85,6 +79,7 @@ $(document).ready(function(){
   function playerTurn(player, id){
     var spotTaken = $('#'+id).text();
     if(spotTaken ===''){
+      countTurns++;
       lockers[id] = player;
       $('#'+id).text(player);
       allLockersF();
@@ -111,7 +106,7 @@ $(document).ready(function(){
 	        i=9;
 	      }
 	    }
-	}
+	  }
     
     if(easyMode == true){
       computerAlreadyPlayed = false;
@@ -142,22 +137,31 @@ $(document).ready(function(){
           preventPlayerWin = false; 
       
       // first check if the computer can win. if it is possible, win. 
-      for(var i =0; i<winnerPositions.length; i++){
-        if(computerWon == false && lockers[winnerPositions[i][0]] === computer && lockers[winnerPositions[i][1]] === computer && lockers[winnerPositions[i][2]] === "#"){
+      for(let i =0; i < winnerPositions.length; i++){
+        if(computerWon == false 
+          && lockers[winnerPositions[i][0]] === computer 
+          && lockers[winnerPositions[i][1]] === computer 
+          && lockers[winnerPositions[i][2]] === "#"){
           lockers[winnerPositions[i][2]] = computer;
           $('#'+winnerPositions[i][2]).text(computer);
           computerWon = true;
           break;
         }
         
-        if(computerWon == false && lockers[winnerPositions[i][0]] === computer && lockers[winnerPositions[i][2]] === computer && lockers[winnerPositions[i][1]]=== "#"){
+        if(computerWon == false 
+          && lockers[winnerPositions[i][0]] === computer 
+          && lockers[winnerPositions[i][2]] === computer 
+          && lockers[winnerPositions[i][1]]=== "#"){
           lockers[winnerPositions[i][1]] = computer;
           $('#'+winnerPositions[i][1]).text(computer);
           computerWon = true;
           break;
         }
         
-        if(computerWon == false && lockers[winnerPositions[i][1]] === computer && lockers[winnerPositions[i][2]] === computer && lockers[winnerPositions[i][0]]=== "#"){
+        if(computerWon == false 
+          && lockers[winnerPositions[i][1]] === computer 
+          && lockers[winnerPositions[i][2]] === computer 
+          && lockers[winnerPositions[i][0]]=== "#"){
           lockers[winnerPositions[i][0]] = computer;
           $('#'+winnerPositions[i][0]).text(computer);
           computerWon = true;
@@ -168,22 +172,31 @@ $(document).ready(function(){
       
       // second, if the computer can not win, check if the player can win and avoid it. 
       if(computerWon == false){
-        for(var i =0; i<winnerPositions.length; i++){
-          if(preventPlayerWin == false && lockers[winnerPositions[i][0]] === player && lockers[winnerPositions[i][1]] === player && lockers[winnerPositions[i][2]] === "#"){
+        for(let i =0; i<winnerPositions.length; i++){
+          if(preventPlayerWin == false 
+            && lockers[winnerPositions[i][0]] === player 
+            && lockers[winnerPositions[i][1]] === player 
+            && lockers[winnerPositions[i][2]] === "#"){
             lockers[winnerPositions[i][2]] = computer; 
             $('#'+winnerPositions[i][2]).text(computer); 
             preventPlayerWin = true;
             break;
           }
           
-          if(preventPlayerWin == false && lockers[winnerPositions[i][0]] === player && lockers[winnerPositions[i][2]] === player && lockers[winnerPositions[i][1]] === "#"){
+          if(preventPlayerWin == false 
+            && lockers[winnerPositions[i][0]] === player 
+            && lockers[winnerPositions[i][2]] === player 
+            && lockers[winnerPositions[i][1]] === "#"){
             lockers[winnerPositions[i][1]] = computer; 
             $('#'+winnerPositions[i][1]).text(computer); 
             preventPlayerWin = true;
             break;
           }
           
-          if(preventPlayerWin == false && lockers[winnerPositions[i][1]] === player && lockers[winnerPositions[i][2]] === player && lockers[winnerPositions[i][0]] === "#"){
+          if(preventPlayerWin == false 
+            && lockers[winnerPositions[i][1]] === player 
+            && lockers[winnerPositions[i][2]] === player 
+            && lockers[winnerPositions[i][0]] === "#"){
             lockers[winnerPositions[i][0]] = computer; 
             $('#'+winnerPositions[i][0]).text(computer); 
             preventPlayerWin = true;
@@ -195,9 +208,35 @@ $(document).ready(function(){
       
       
       // third, if no one can win, play the pattern
-      if(computerWon == false && preventPlayerWin == false){
-        playPattern(); 
-      }  // 'if' -> playPattern;     
+      if( !computerWon && !preventPlayerWin ){
+        //check algorithmHoles
+        if( countTurns === 2){
+          // algorithm holes
+          const holes = [ [5, 6, 1], 
+                         [2, 6, 1], 
+                         [0, 8, 7], 
+                         [5, 7, 2], 
+                         [2, 7, 8 ] ]; 
+          
+          for(let i = 0; i < holes.length; i++){
+            if(  lockers[holes[i][0]] === player 
+               && lockers[holes[i][1]] === player 
+               && lockers[holes[i][2]] === "#" ){
+                lockers[holes[i][2]] = computer; 
+                $('#'+holes[i][2]).text(computer); 
+                isAlgorithmHolesDone = true;
+                break;
+            }
+          }
+        }
+
+        if( !isAlgorithmHolesDone ){
+          playPattern(); 
+        }
+        else{
+          isAlgorithmHolesDone = false;
+        }
+      }
       
       // computer already played, so now renew var for next turn. 
       preventPlayerWin = false;
@@ -266,7 +305,6 @@ $(document).ready(function(){
          }
     }
   }
-  
   
   
 });  //document ready
